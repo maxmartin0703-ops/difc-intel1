@@ -364,7 +364,7 @@ Current database: ${ownerData.length} owners across ${[...new Set(ownerData.map(
 Multi-unit owners: ${ownerData.filter(o=>o.unitCount>1).length}. Hot leads: ${ownerData.filter(o=>o.score==='hot').length}.`;
 
   const dataContext = ownerData.length > 0
-    ? `\n\nDatabase (top 50 by score):\n${JSON.stringify([...ownerData].sort((a,b)=>({hot:0,warm:1,cold:2})[a.score]-({hot:0,warm:1,cold:2})[b.score]).slice(0,50).map(o=>({name:o.name,community:o.community,unit:o.unit,bedrooms:o.bedrooms,price:o.price,date:o.date,hasPhone:!!o.phone,unitCount:o.unitCount,score:o.score})),null,1)}`
+    ? `\n\nDatabase (top 50 by score):\n${JSON.stringify([...ownerData].sort((a,b)=>({hot:0,warm:1,cold:2})[a.score]-({hot:0,warm:1,cold:2})[b.score]).slice(0,20).map(o=>({name:o.name,community:o.community,unit:o.unit,bedrooms:o.bedrooms,price:o.price,date:o.date,hasPhone:!!o.phone,unitCount:o.unitCount,score:o.score})),null,1)}`
     : '';
 
   const fullMessages = messages.map((m,i) =>
